@@ -1,7 +1,5 @@
 import { createClient } from "https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/+esm";
-
-const SUPABASE_URL = "https://xxyubplnmsrenfkjshht.supabase.co";
-const SUPABASE_KEY = "sb_publishable_LUmcsAjyQCXOHsheWuHXJg_aTtiZ1bg";
+import { SUPABASE_KEY, SUPABASE_URL } from "./config.js";
 
 const COLS = 5;
 const ROWS = 5;
