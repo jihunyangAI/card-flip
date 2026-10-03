@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#140e0a" />
+    <title>카드 뒤집기</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <header class="top">
+      <div class="title-block">
+        <p class="eyebrow">메모리</p>
+        <h1>카드 뒤집기</h1>
+        <p class="help">같은 그림 두 장을 뒤집으세요. 정중앙 칸은 처음부터 열려 있습니다.</p>
+      </div>
+      <div class="stats">
+        <div class="stat">
+          <span>이동</span>
+          <strong id="moves">0</strong>
+        </div>
+        <div class="stat">
+          <span>시간</span>
+          <strong id="timer">0:00</strong>
+        </div>
+        <div class="stat">
+          <span>짝</span>
+          <strong id="pairs">0/12</strong>
+        </div>
+        <button type="button" id="new-game" class="btn">새 게임</button>
+      </div>
+    </header>
+
+    <main class="layout">
+      <section class="play" aria-labelledby="board-title">
+        <h2 id="board-title" class="sr-only">카드판</h2>
+        <div class="table">
+          <p id="status" class="status" role="status">같은 그림 두 장을 찾으세요.</p>
+          <div id="board" class="board"></div>
+        </div>
+      </section>
+
+      <aside class="panel" aria-labelledby="leaderboard-title">
+        <h2 id="leaderboard-title">리더보드</h2>
+        <p class="panel-note">5×5 · 이동이 적을수록 위, 같으면 빠른 기록</p>
+        <p id="board-error" class="error" hidden></p>
+        <ol id="leaderboard" class="scores">
+          <li class="empty">기록을 불러오는 중…</li>
+        </ol>
+      </aside>
+    </main>
+
+    <div id="modal" class="modal" hidden>
+      <form id="save-form" class="dialog" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+        <h2 id="modal-title">모두 맞췄습니다</h2>
+        <p id="modal-stats"></p>
+        <label class="field">
+          이름
+          <input
+            id="player-name"
+            name="playerName"
+            maxlength="40"
+            autocomplete="nickname"
+            placeholder="리더보드에 표시할 이름"
+            required
+          />
+        </label>
+        <p id="save-error" class="error" hidden></p>
+        <div class="dialog-actions">
+          <button type="submit" class="btn" id="save-score">기록 저장</button>
+          <button type="button" class="btn btn-ghost" id="skip-save">저장 안 함</button>
+        </div>
+      </form>
+    </div>
+
+    <script type="module" src="./app.js"></script>
+  </body>
+</html>
